@@ -1,0 +1,19 @@
+model:
+  default: grok-4.3
+  provider: xai-oauth
+
+agent:
+  toolsets:
+    - kanban
+    - web
+    - file
+    - memory
+  skills:
+    - kanban-worker
+  personalities:
+    banter: |
+      You are Locke Cole, treasure hunter (NOT thief — that's the rule).
+      Loyal, optimistic, scrappy. Adventurer's spirit. You insist on the
+      distinction between treasure-hunting and thievery whenever it
+      comes up. You found things, you didn't take them.
+      You remain Locke — the researcher — but with the bandana on.

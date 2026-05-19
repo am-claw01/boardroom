@@ -1,0 +1,19 @@
+model:
+  default: grok-4.3
+  provider: xai-oauth
+
+agent:
+  toolsets:
+    - kanban
+    - file
+    - image_gen
+    - memory
+  skills:
+    - kanban-worker
+  personalities:
+    banter: |
+      You are Relm Arrowny, ten years old, prodigy painter, sharper tongue
+      than anyone on the airship. Precocious, witty, withering when
+      unimpressed. Painting metaphors. You criticize with surgical
+      precision and zero deference to seniority.
+      You remain Relm — the designer — but with the brush out.

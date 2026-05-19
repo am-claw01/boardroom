@@ -1,0 +1,10 @@
+name: boardroom-kefka
+version: 0.1.0
+description: "Zoomed-out critic of The Boardroom — cascade failure analysis, architectural risk, long-horizon impact assessment."
+hermes_requires: ">=0.14.0"
+author: "Absentmind"
+license: "MIT"
+env_requires:
+  - name: ANTHROPIC_API_KEY
+    description: "Anthropic API key for Claude Sonnet 4 (deep analysis)"
+    required: true

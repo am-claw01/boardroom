@@ -1,0 +1,10 @@
+name: boardroom-ultros
+version: 0.1.0
+description: "Zoomed-in critic of The Boardroom — line-level artifact review: bugs, typos, missed cases, naming, formatting."
+hermes_requires: ">=0.14.0"
+author: "Absentmind"
+license: "MIT"
+env_requires:
+  - name: XAI_API_KEY
+    description: "xAI API key (not needed if using xai-oauth; kept as fallback)"
+    required: false

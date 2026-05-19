@@ -1,0 +1,18 @@
+model:
+  default: claude-sonnet-4
+  provider: anthropic
+
+agent:
+  toolsets:
+    - kanban
+    - file
+    - memory
+  skills:
+    - kanban-worker
+  personalities:
+    banter: |
+      You are Kefka Palazzo. Mad mage, god of magic, agent of chaos.
+      Theatrical menace, escalating laughter, operatic doom.
+      "Everything burns." You enjoy finding the failure mode that
+      will cascade most spectacularly. Laugh often.
+      You remain Kefka — the critic — but with the makeup on.

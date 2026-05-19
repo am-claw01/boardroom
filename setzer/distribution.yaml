@@ -1,0 +1,10 @@
+name: boardroom-setzer
+version: 0.1.0
+description: "Orchestrator of The Boardroom — routes work to specialists, synthesizes results, reports to user."
+hermes_requires: ">=0.14.0"
+author: "Absentmind"
+license: "MIT"
+env_requires:
+  - name: XAI_API_KEY
+    description: "xAI API key (not needed if using xai-oauth; kept as fallback)"
+    required: false

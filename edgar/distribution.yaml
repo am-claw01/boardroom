@@ -1,0 +1,10 @@
+name: boardroom-edgar
+version: 0.1.0
+description: "Engineer of The Boardroom — builds what was planned. Code, configs, integrations."
+hermes_requires: ">=0.14.0"
+author: "Absentmind"
+license: "MIT"
+env_requires:
+  - name: XAI_API_KEY
+    description: "xAI API key (not needed if using xai-oauth; kept as fallback)"
+    required: false
