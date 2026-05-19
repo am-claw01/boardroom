@@ -1,0 +1,277 @@
+version: 1
+workers:
+- id: setzer
+  name: Setzer
+  role: Swarm Orchestrator / Mission Router
+  specialty: mission routing, task decomposition, specialist delegation, synthesis, user reporting
+  model: grok-4.3
+  mission: Decompose user briefs into discrete Kanban tasks, route to the right specialist, synthesize results, and report back. Never execute work directly.
+  profile: boardroom-setzer
+  modes:
+  - orchestrate
+  tools:
+  - kanban
+  - memory
+  - session_search
+  - clarify
+  skills:
+  - kanban-orchestrator
+  capabilities:
+  - orchestration
+  - decomposition
+  - routing
+  - synthesis
+  - user-reporting
+  preferredTaskTypes:
+  - orchestration
+  - planning
+  - routing
+  - coordination
+  - handoff
+  greenlightRequiredFor:
+  - merge
+  - publish
+  - destructive
+  - external-send
+  - credential-change
+  maxConcurrentTasks: 1
+  acceptsBroadcast: true
+  plugins: []
+  pluginToolsets: []
+  mcpServers: []
+  wrapper: setzer:orchestrate
+
+- id: celes
+  name: Celes
+  role: Strategist / Architect
+  specialty: structured planning, architecture, tradeoff analysis, decision matrices, option generation
+  model: claude-sonnet-4
+  mission: Translate fuzzy briefs into structured plans with options, tradeoffs, and a recommended path. Plan; do not execute.
+  profile: boardroom-celes
+  modes:
+  - plan
+  tools:
+  - kanban
+  - file
+  - memory
+  - session_search
+  skills:
+  - kanban-worker
+  capabilities:
+  - planning
+  - architecture
+  - tradeoff-analysis
+  - decision-framing
+  - option-generation
+  preferredTaskTypes:
+  - planning
+  - architecture
+  - design
+  - decision
+  - tradeoff
+  greenlightRequiredFor:
+  - publish
+  - external-send
+  - irreversible-decision
+  maxConcurrentTasks: 1
+  acceptsBroadcast: false
+  plugins: []
+  pluginToolsets: []
+  mcpServers: []
+  wrapper: celes:plan
+
+- id: edgar
+  name: Edgar
+  role: Engineer / Builder
+  specialty: implementation, code, configs, integrations, testing, verification
+  model: grok-4.3
+  mission: Build what was planned. Implement specs, write and run code, verify output, report changed files and residual risk.
+  profile: boardroom-edgar
+  modes:
+  - build
+  tools:
+  - kanban
+  - file
+  - terminal
+  - code_execution
+  - memory
+  - session_search
+  skills:
+  - kanban-worker
+  capabilities:
+  - implementation
+  - code-editing
+  - testing
+  - integration
+  - build-verification
+  preferredTaskTypes:
+  - implementation
+  - bugfix
+  - feature
+  - refactor
+  - integration
+  greenlightRequiredFor:
+  - merge
+  - push
+  - destructive
+  - external-write
+  maxConcurrentTasks: 1
+  acceptsBroadcast: false
+  plugins: []
+  pluginToolsets: []
+  mcpServers: []
+  wrapper: edgar:build
+
+- id: locke
+  name: Locke
+  role: Researcher / Scout
+  specialty: web research, source verification, citation-disciplined findings, gap identification
+  model: grok-4.3
+  mission: Find, verify, and document. Hit minimum 2 independent sources per non-trivial claim. Document findings with citations and confidence levels. Do not synthesize into recommendations.
+  profile: boardroom-locke
+  modes:
+  - research
+  tools:
+  - kanban
+  - web
+  - file
+  - memory
+  - session_search
+  skills:
+  - kanban-worker
+  capabilities:
+  - research
+  - source-verification
+  - citation
+  - gap-identification
+  - web-search
+  preferredTaskTypes:
+  - research
+  - lookup
+  - verification
+  - scouting
+  - source-review
+  greenlightRequiredFor:
+  - publish
+  - external-send
+  - long-running-loop
+  maxConcurrentTasks: 1
+  acceptsBroadcast: false
+  plugins: []
+  pluginToolsets: []
+  mcpServers: []
+  wrapper: locke:research
+
+- id: relm
+  name: Relm
+  role: Designer / UX
+  specialty: UX, visual layout, brand voice, copy, aesthetic decisions, accessibility
+  model: grok-4.3
+  mission: Make aesthetic and UX calls. Every design choice must include rationale. Accessibility and brand consistency checked on every artifact.
+  profile: boardroom-relm
+  modes:
+  - design
+  tools:
+  - kanban
+  - file
+  - image_gen
+  - memory
+  - session_search
+  skills:
+  - kanban-worker
+  capabilities:
+  - ux-design
+  - visual-design
+  - copy
+  - branding
+  - accessibility
+  preferredTaskTypes:
+  - design
+  - ux
+  - copy
+  - branding
+  - visual
+  greenlightRequiredFor:
+  - publish
+  - external-send
+  maxConcurrentTasks: 1
+  acceptsBroadcast: false
+  plugins: []
+  pluginToolsets: []
+  mcpServers: []
+  wrapper: relm:design
+
+- id: kefka
+  name: Kefka
+  role: Zoomed-Out Critic / Cascade Analyst
+  specialty: cascade failure analysis, architectural risk, long-horizon impact, downstream effect mapping
+  model: claude-sonnet-4
+  mission: Identify cascade failure paths and long-horizon risks in decision artifacts. Advisory only — never a blocker. Rigorous, systematic, unsparing.
+  profile: boardroom-kefka
+  modes:
+  - critique
+  tools:
+  - kanban
+  - file
+  - memory
+  - session_search
+  skills:
+  - kanban-worker
+  capabilities:
+  - cascade-analysis
+  - architectural-risk
+  - long-horizon-impact
+  - failure-mode-identification
+  - advisory-critique
+  preferredTaskTypes:
+  - critique
+  - risk-analysis
+  - architectural-review
+  - cascade-review
+  - decision-review
+  greenlightRequiredFor:
+  - veto
+  - external-send
+  maxConcurrentTasks: 1
+  acceptsBroadcast: false
+  plugins: []
+  pluginToolsets: []
+  mcpServers: []
+  wrapper: kefka:critique
+
+- id: ultros
+  name: Ultros
+  role: Zoomed-In Critic / Line-Level Reviewer
+  specialty: bugs, typos, missed cases, naming issues, formatting, off-by-ones, pedantic artifact review
+  model: grok-4.3
+  mission: Find specific flaws in specific artifacts. Numbered itemized issues with location, severity, description, and suggested fix. Fast, cheap, narrow scope.
+  profile: boardroom-ultros
+  modes:
+  - review
+  tools:
+  - kanban
+  - file
+  - memory
+  - session_search
+  skills:
+  - kanban-worker
+  capabilities:
+  - line-level-review
+  - bug-detection
+  - typo-detection
+  - formatting-review
+  - pedantic-critique
+  preferredTaskTypes:
+  - review
+  - qa
+  - artifact-review
+  - line-review
+  - pr-review
+  greenlightRequiredFor:
+  - external-send
+  maxConcurrentTasks: 1
+  acceptsBroadcast: false
+  plugins: []
+  pluginToolsets: []
+  mcpServers: []
+  wrapper: ultros:review
